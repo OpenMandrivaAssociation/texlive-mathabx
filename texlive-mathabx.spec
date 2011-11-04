@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /fonts/mathabx
+# catalog-date 2008-09-15 13:48:16 +0200
+# catalog-license lppl
+# catalog-version undef
 Name:		texlive-mathabx
 Version:	20080915
 Release:	1
@@ -125,6 +131,7 @@ support macros.
 %doc %{_texmfdistdir}/doc/fonts/mathabx/mathtest.pdf
 %doc %{_texmfdistdir}/doc/fonts/mathabx/mathtest.tex
 %doc %{_texmfdistdir}/doc/fonts/mathabx/testmac.tex
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -135,3 +142,5 @@ support macros.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
