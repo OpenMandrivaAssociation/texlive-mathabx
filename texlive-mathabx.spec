@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 Mathabx is a set of 3 mathematical symbols font series: matha,
@@ -28,20 +26,12 @@ time to time, so there is no claim of stability (encoding,
 metrics, design). The package includes Plain TeX and LaTeX
 support macros.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -132,7 +122,6 @@ support macros.
 %doc %{_texmfdistdir}/doc/fonts/mathabx/mathtest.pdf
 %doc %{_texmfdistdir}/doc/fonts/mathabx/mathtest.tex
 %doc %{_texmfdistdir}/doc/fonts/mathabx/testmac.tex
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -143,5 +132,3 @@ support macros.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
