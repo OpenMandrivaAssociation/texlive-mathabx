@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-mathabx
 Version:	20080915
-Release:	5
+Release:	6
 Summary:	Three series of mathematical symbols
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/mathabx
