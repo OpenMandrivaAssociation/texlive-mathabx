@@ -5,8 +5,8 @@
 # catalog-license lppl
 # catalog-version undef
 Name:		texlive-mathabx
-Version:	20080915
-Release:	10
+Version:	20170414
+Release:	1
 Summary:	Three series of mathematical symbols
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/mathabx
