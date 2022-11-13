@@ -1,18 +1,12 @@
-# revision 15878
-# category Package
-# catalog-ctan /fonts/mathabx
-# catalog-date 2008-09-15 13:48:16 +0200
-# catalog-license lppl
-# catalog-version undef
 Name:		texlive-mathabx
-Version:	20190228
+Version:	15878
 Release:	1
 Summary:	Three series of mathematical symbols
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/mathabx
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mathabx.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mathabx.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mathabx.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mathabx.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -27,12 +21,12 @@ metrics, design). The package includes Plain TeX and LaTeX
 support macros.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -125,24 +119,10 @@ support macros.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 20080915-2
-+ Revision: 753769
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20080915-1
-+ Revision: 718962
-- texlive-mathabx
-- texlive-mathabx
-- texlive-mathabx
-- texlive-mathabx
-
